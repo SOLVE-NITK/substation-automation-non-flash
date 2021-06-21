@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <title>Substation Automation</title>
+</head>
+<body>
+    <div class="container-fluid" id="main">
+        <h1 class="text-center bg-dark text-white pb-3 fixed-top" >Substation Automation Experiments</h1>
+    </div>
+    <div class="container">
+        <p>Link to Substation Automation Lab: <a href="http://sa-nitk.vlabs.ac.in/index.html" target="blank">Substation Automation Lab</a></p>
+        <div class="row pt-50" id="cards"> 
+        </div>
+        <div class="row pt-50"> 
+            <div class="col-md-10" id="simMain">
+                <h1>Simulator</h1>
+                <iframe id="simulator" noscroll="" scrolling="no" src="" height="700px" width="1000px"></iframe>
+            </div>
+            <div class="col-md-2">
+                <i class="fad fa-3x fa-arrow-circle-up" title="Move To Top" onclick="moveTop()"></i>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html>

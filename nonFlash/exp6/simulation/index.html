@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>SOLVE</title>
+<link rel="stylesheet" href="css/transformer.css" />
+<script>
+var simsubscreennum=0;
+var temp=0;
+
+
+</script>
+</head>
+
+<body style="margin:0; font-family:verdana;">
+<div id="simscreen">
+<div id="title"><h5>Operating Breakers From Workstation During Maintenance Operation</h5></div>
+
+<div class="simsubscreen" id="canvas0">
+	<img src="images/main.png" id="main" class="responsive" style="position: absolute; left: 20px; top: 20px;max-width: 800px;"/>
+	<img src="images/arrow.png" id="arr" style="position: absolute; left: 160px; top: 250px;width: 55px; visibility:visible">	
+	<img src="images/reset.png" style="position: absolute; left: 450px; top: 410px;width: 70px; cursor: pointer" onclick="resetSetup()">
+
+	<img src="images/tr1.png" id="tr1" style="position: absolute; left: 30px; top: 40px;width: 45px; cursor: pointer" onclick="giveOptions(this)">
+	<img src="images/tr2.png"  id="tr2" style="position: absolute; left: 30px; top: 100px;width: 45px; cursor: pointer" onclick="giveOptions(this)">
+
+	<img src="images/connectors.png" id="c1" style="position: absolute; left: 65px; top: 20px;width: 35px;visibility: hidden" >
+	<img src="images/connectors.png" id="c2" style="position: absolute; left: 65px; top: 80px;width: 35px; cursor: pointer; visibility: hidden" >
+
+	<img src="images/takeOut.png"  id="t1" style="position: absolute; left: 80px; top: 20px;width: 65px; cursor: pointer;visibility: hidden" onmouseover="updateList(this)" onmouseout="removeInfo()" onclick = "setOperation(this)">
+	<img src="images/takeIn.png" id="t2"  style="position: absolute; left: 80px; top: 55px;width: 65px; cursor: pointer;visibility: hidden" onmouseover="updateList(this)" onmouseout="removeInfo()" onclick = "setOperation(this)">
+	<img src="images/takeOut.png"  id="t3" style="position: absolute; left: 80px; top: 85px;width: 65px; cursor: pointer;visibility: hidden" onmouseover="updateList(this)" onmouseout="removeInfo()" onclick = "setOperation(this)">
+	<img src="images/takeIn.png"  id="t4" style="position: absolute; left: 80px; top: 120px;width: 65px; cursor: pointer;visibility: hidden" onmouseover="updateList(this)" onmouseout="removeInfo()" onclick = "setOperation(this)">
+	
+
+	<img src="images/transformerInitial.png"  id="transformer1" style="position: absolute; left: 354px; top: 232px;width: 28px; cursor: pointer" >
+
+	<img src="images/transformerInitial.png"  id="transformer2" style="position: absolute; left: 595px; top: 232px;width: 28px; cursor: pointer" >
+
+	<p id="bcStatus" style="position: absolute;left: 460px;top: 270px;font-size: 10px;color: blue;">Open</p>
+	<p id="mi1" style="position: absolute;left: 325px;top: 332px;font-size: 10px;color: red;">30</p>
+	<p id="mv1" style="position: absolute;left: 360px;top: 332px;font-size: 10px;color: red;">11</p>
+	<p id="mp1" style="position: absolute;left: 390px;top: 332px;font-size: 10px;color: red;">571.58</p>
+
+
+	<p id="mi2" style="position: absolute;left: 540px;top: 332px;font-size: 10px;color: red;">45</p>
+	<p id="mv2" style="position: absolute;left: 576px;top: 332px;font-size: 10px;color: red;">11</p>
+	<p id="mp2" style="position: absolute;left: 606px;top: 332px;font-size: 10px;color: red;">857.36</p>
+
+
+	<p id="mi3" style="position: absolute;left: 515px;top: 88px;font-size: 10px;color: red;">25</p>
+	<p id="mv3" style="position: absolute;left: 550px;top: 88px;font-size: 10px;color: red;">33</p>
+	<p id="mp3" style="position: absolute;left: 576px;top: 88px;font-size: 10px;color: red;">1428.94</p>
+
+
+	<p id="mi4" style="position: absolute;left: 398px;top: 240px;font-size: 10px;color: red;">30</p>
+	<p id="mv4" style="position: absolute;left: 425px;top: 240px;font-size: 10px;color: red;">11</p>
+	<p id="mp4" style="position: absolute;left: 445px;top: 240px;font-size: 10px;color: red;">571.58</p>
+
+
+	<p id="mi5" style="position: absolute;left: 498px;top: 240px;font-size: 10px;color: red;">45</p>
+	<p id="mv5" style="position: absolute;left: 524px;top: 240px;font-size: 10px;color: red;">11</p>
+	<p id="mp5" style="position: absolute;left: 548px;top: 240px;font-size: 10px;color: red;">857.36</p>
+	
+	<p id="tag" style="position: absolute; left: 26px; top: -5px; font-size: 10px"></p>
+
+	<div id="info" style="position: absolute; left: 210px; top: 22px; width: 270px; height: 160px; border: 1px solid black; padding: 10px; font-size: 14px;background-color: rgb(250, 229, 217); z-index: 1; color: black;visibility: hidden">
+	</div>
+
+</div>
+
+
+
+<div class="parentPopup" id="parentPopup">
+	<div class="popup" id="popUpContent">    
+		dcdcdd  
+	</div>
+</div>
+
+ 
+<div id="copyright"> &copy;<script>document.write(new Date().getFullYear())</script> SOLVE - The Virtual Lab @ NITK Surathkal</div>
+</div>
+<script type="text/javascript" src="js/transformer.js"></script>
+
+</body>
+</html>

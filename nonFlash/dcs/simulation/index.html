@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>SOLVE</title>
+<link rel="stylesheet" href="css/dcs.css" />
+<script>
+var simsubscreennum=0;
+var temp=0;
+
+
+</script>
+</head>
+
+<body style="margin:0; font-family:verdana;">
+<div id="simscreen">
+<div id="title"><h3>Distributed Control System</h3></div>
+
+<div class="simsubscreen" id="canvas0">
+	<div id="setUp">
+		<img src="images/main.png" id="main" style="position: absolute; left: 0px; top: 50px"/>
+		<img src="images/backForward.png" id="h1" style="position: absolute;left: 640px;top: 250px;visibility:visible">		
+		<img class="arr" src="images/a2.png" id="ar1" style="position: absolute;left: 230px;top: 150px;visibility:visible;width: 40px;">		
+		<img class="arr" src="images/a2.png" id="ar2" style="position: absolute;left: 290px;top: 150px;visibility:visible;width: 40px;">		
+		<img class="arr" src="images/a2.png" id="ar3" style="position: absolute;left: 350px;top: 150px;visibility:visible;width: 40px;">		
+		<img class="arr" src="images/a2.png" id="ar4" style="position: absolute;left: 410px;top: 150px;visibility:visible;width: 40px;">		
+		<img src="images/frontBack.png" id="h2" style="position: absolute;left: 640px;top: 250px;visibility:hidden">		
+		<p style="position: absolute;left: 230px;top: 120px;font-size: 12px;color: goldenrod;">Command output from DCS to Field</p>		
+		<p style="position: absolute;left: 230px;top: 240px;font-size: 12px;color: goldenrod;">Data input from Field</p>
+		<img class="arr1" src="images/a22.png" id="arr1" style="position: absolute;left: 230px;top: 280px;visibility:visible;width: 40px;">		
+		<img class="arr1" src="images/a22.png" id="arr2" style="position: absolute;left: 290px;top: 280px;visibility:visible;width: 40px;">		
+		<img class="arr1" src="images/a22.png" id="arr3" style="position: absolute;left: 350px;top: 280px;visibility:visible;width: 40px;">		
+		<img class="arr1" src="images/a22.png" id="arr4" style="position: absolute;left: 410px;top: 280px;visibility:visible;width: 40px;">			
+	</div>
+	<div id="instructions">
+		<ul style="position: absolute;left: 100px;top: 350px;font-family: verdana;font-size: 14px;padding:  5px;">
+				<li>We are using Yokogawa CS 1000 </li>
+				<li>Which can support 1000 inputs/outputs in both digital and analog form</li>
+				<li>Laboratory Implementation
+					<table>
+						<tr>
+							<td><li>8 Analog Input</li></td>
+							<td><li>8 Analog Output</li></td>
+						</tr>
+						<tr>
+							<td><li>16 Digital Input</li></td>
+							<td><li>16 Digital Output</li></td>
+						</tr>
+					</table>
+			</li>
+			</ul>			
+	</div>
+
+</div>
+
+<div class="simsubscreen" id="canvas1" style="visibility:hidden; ">
+	<h2 style="position:absolute; top: 50px;left: 250px;color: orange;">Yokogowa CS1000 Unit</h2>	
+	<img src="images/device.png" id="device" style="position: absolute;left: 150px;top: 100px;">
+</div>
+
+<div class="simsubscreen" id="canvas2" style="visibility:hidden;">
+	<h2 style="position:absolute; top: 20px;left: 200px;color: orange;">Setup for simulation of Digital Input</h2>	
+	<img src="images/simulationSetup.png" id="device" style="position: absolute;left: 50px;top: 90px;">
+	<img src="images/setupArrow2.png" style="position: absolute;left: 220px;top: 300px;">	
+	<img src="images/setupArrow1.png" id="leftArrow" style="position: absolute;left: 220px;top: 300px;visibility:hidden">	
+	<img src="images/setupArrow2.png" style="position: absolute;left: 548px;top: 300px;">
+	<img src="images/setupArrow1.png" id="rightArrow" style="position: absolute;left: 548px;top: 300px;visibility:hidden">
+</div>
+<div class="simsubscreen" id="canvas3" style="visibility:hidden;">
+	<h3 style="position:absolute; top: 0px;left: 50px;color: orange;">Human System Interface in Workstation of a control center</h3>	
+	<img src="images/circuitSetup.png" style="position: absolute;left: 80px;top: 70px;">
+	<img src="images/setupArrow2.png" style="position: absolute;left: 280px;top: 250px;">
+	<img src="images/setupArrow1.png" id="s1" style="position: absolute;left: 280px;top: 250px;visibility: hidden">
+	<div class="smallFont" style="position:absolute;left: 275px;top: 180px;"><p style="position:relative; width: auto;">Communication Link to workstation</p></div>
+	<div class="smallFont" style="position:absolute;left: 70px;top: 50px;"><p style="position:relative; width: auto;">Input status from circuit breaker in the field</p></div>
+	<div class="smallFont" style="position:absolute;left: 30px;top: 190px;"><p style="position:relative; width: auto;color: lightgreen;font-size: 11px;">After the start of simulation, Click on Switch Icon will change state from Open to Close and Close to Open</p></div>
+</div>
+<div class="simsubscreen" id="canvas4" style="visibility:hidden;">
+	<h2 id="sim" style="color: goldenrod;position:absolute; top: 230px;left: 230px;opacity: 1">Here comes the Simulator</h2>
+	<div id="setup" style="visibility:hidden;">
+		<h3 style="position:absolute; top: 0px;left: 70px;color: orange;">Circuit Breaker Status Indication from field Input</h3>	
+		<img src="images/simSetup.png" style="position: absolute;left: 80px;top: 70px;">
+		<img src="images/setupArrow2.png" style="position: absolute;left: 280px;top: 250px;">
+		<img src="images/setupArrow1.png" id="s2" style="position: absolute;left: 280px;top: 250px;visibility: hidden">
+		<div class="smallFont" style="position:absolute;left: 275px;top: 180px;"><p style="position:relative; width: auto;">Communication Link to workstation</p></div>
+		<div class="smallFont" style="position:absolute;left: 70px;top: 35px;"><p style="position:relative; width: auto;">Input status from circuit breaker in the field</p></div>
+		<img src="images/onoff.png" style="position: absolute;left: 180px;top: 450px;">
+		<img src="images/red.png" id="BC" style="position: absolute;left: 562px;top: 354px;width: 19px;height: 15px;">	
+	</div>
+</div>
+
+<!-- nextButton -->
+<div id="nav">
+<img id="nextButton" onclick="navNext()" src="images/next.png" />
+<img id="prevButton" onclick="navBack()" src="images/pre.png" />
+</div>
+
+
+
+ 
+<!--Blinking Arrow	-->
+<div id="copyright"> &copy;<script>document.write(new Date().getFullYear())</script> SOLVE - The Virtual Lab @ NITK Surathkal</div>
+</div>
+<script type="text/javascript" src="js/dcs.js"></script>
+<script type="text/javascript" src="js/refreshAnim.js"></script>
+
+</body>
+</html>

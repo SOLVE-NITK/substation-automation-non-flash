@@ -1,0 +1,7 @@
+Click here    
+--- RECORDSEPARATOR ---
+to CONNECT/  
+--- RECORDSEPARATOR ---
+DISCONNECT       
+--- RECORDSEPARATOR ---
+the load

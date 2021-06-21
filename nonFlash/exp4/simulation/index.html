@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>SOLVE</title>
+<link rel="stylesheet" href="css/fault.css" />
+<script>
+var simsubscreennum=0;
+var temp=0;
+
+
+</script>
+</head>
+
+<body style="margin:0; font-family:verdana;">
+<div id="simscreen">
+<div id="title"><h3>Fault in Feeder</h3></div>
+
+<div class="simsubscreen" id="canvas0">
+	<img src="images/main.png" id="main" class="responsive" style="position: absolute; left: 20px; top: 20px;max-width: 800px;"/>
+	<img src="images/hand.png" id="hand1" style="position: absolute; left: 5px; top: 170px;width: 35px">
+	<img src="images/hand.png" id="hand2" style="position: absolute; left: 5px; top: 270px;width: 35px">
+	<img src="images/switchOpen.png" id="f1" style="position: absolute; left: 55px; top: 176px;width: 25px;cursor: pointer" onclick="changeSwitchStatus(this)">
+	<img src="images/switchOpen.png" id="f2" style="position: absolute; left: 55px; top: 270px;width: 25px;cursor: pointer;" onclick="changeSwitchStatus(this)">
+	<img src="images/arrow.png" id="arr" style="position: absolute; left: 242px; top: 250px;width: 60px; visibility:visible">	
+	<img src="images/leftArrow.png" id="leftArrow" style="position: absolute; left: 390px; top: 328px;">	
+	<img src="images/leftArrow.png" id="rightArrow" style="position: absolute; left: 655px; top: 312px;transform: rotate(-90deg);">	
+	<img src="images/leftArrow.png" id="upArrow" style="position: absolute; left: 545px; top: 120px;transform: rotate(-180deg);">
+	<img src="images/reset.png" id="arr" style="position: absolute; left: 70px; top: 410px;width: 100px; cursor: pointer" onclick="resetSwitch();">	
+	<div id="info" style="position: absolute; left: 10px; top: 100px;color: rgb(120, 231, 120); width: 80px;font-family: verdana;font-size: 14px;visibility:visible"><i>Click here to create a fault</i></div>
+	<p id="mi1" style="position: absolute;left: 320px;top: 384px;font-size: 12px">45</p>
+	<p id="mv1" style="position: absolute;left: 358px;top: 384px;font-size: 12px">11</p>
+	<p id="mp1" style="position: absolute;left: 397px;top: 384px;font-size: 12px">857.36</p>
+	<p id="mi2" style="position: absolute;left: 624px;top: 384px;font-size: 12px">30</p>
+	<p id="mv2" style="position: absolute;left: 660px;top: 384px;font-size: 12px">11</p>
+	<p id="mp2" style="position: absolute;left: 696px;top: 384px;font-size: 12px">571.57</p>
+	<p id="mi3" style="position: absolute;left: 600px;top: 95px;font-size: 12px">0</p>	
+	<p id="mv3" style="position: absolute;left: 640px;top: 95px;font-size: 12px">33</p>	
+	<p id="mp3" style="position: absolute;left: 670px;top: 95px;font-size: 12px">0</p>
+	<div id="meter1Load" style="position: absolute; left: 340px; top: 420px;color: rgb(252, 124, 188); width: 80px;font-family: verdana;font-size: 14px;visibility:visible"></div>
+	<div id="meter2Load" style="position: absolute; left: 640px; top: 420px;color: rgb(252, 124, 188); width: 80px;font-family: verdana;font-size: 14px;visibility:visible"></div>
+	<div id="meter3Load" style="position: absolute; left: 620px; top: 130px;color: rgb(252, 124, 188); width: 80px;font-family: verdana;font-size: 14px;visibility:visible"></div>
+	<img src="images/blue.png" id="leftBlue" style="position: absolute; left: 440px; top: 328px;width: 23px;opacity: 0">
+	<img src="images/blue.png" id="rightBlue" style="position: absolute; left: 592px; top: 328px;width: 23px;opacity: 0">
+</div>
+
+
+
+<div class="parentPopup" id="parentPopup">
+	<div class="popup" id="popUpContent">    
+		dcdcdd  
+	</div>
+</div>
+
+ 
+<div id="copyright"> &copy;<script>document.write(new Date().getFullYear())</script> SOLVE - The Virtual Lab @ NITK Surathkal</div>
+</div>
+<script type="text/javascript" src="js/fault.js"></script>
+
+</body>
+</html>

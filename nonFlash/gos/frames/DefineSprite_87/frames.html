@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><script type="text/javascript" src="canvas.js"></script><style type="text/css">#resizable {position:relative; display:inline-block; margin:0; padding:0;font-size:0px;} #width_size {width:10px; position:absolute; right:-5px; top:0px; bottom:0px; cursor:e-resize;-webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;} #height_size {height:10px; position:absolute; bottom:-5px; left:0px; right:0px; cursor:n-resize;-webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;} #myCanvas {margin:0; padding:0;} </style></head><body>
+
+<div id="resizable"><canvas id="myCanvas" width="144" height="72" style="border:1px solid #c3c3c3;">
+Your browser does not support the HTML5 canvas tag.
+</canvas><div id="width_size">&nbsp;</div><div id="height_size">&nbsp;</div></div>
+
+<script>var canvas=document.getElementById("myCanvas");
+var ctx=canvas.getContext("2d");
+enhanceContext(ctx);
+var ctrans = new cxform(0,0,0,0,255,255,255,255);
+
+var imageObj73 = document.createElement("img");
+imageObj73.src="data:image/png;base64,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";
+function image73(ctx,ctrans,frame,ratio,time){
+	var pathData="M 0 0 L 0 1440 2880 1440 2880 0 0 0";
+	drawPath(ctx,pathData,false);
+	ctx.save();
+	ctx.clip();
+	ctx.transform(20,0,0,20,0,0);
+	ctx.transform(1.0069444444444444,0,0,1.0138888888888888,-0.5,-0.5);
+	var fimg = ctrans.applyToImage(imageObj73);
+	var pat=ctx.createPattern(fimg,"repeat");
+	ctx.fillStyle = pat;
+	ctx.fillRect(-16384,-16384,32768,32768);
+	ctx.restore();
+}
+
+function shape74(ctx,ctrans,frame,ratio,time){
+	var pathData="M 2880 1440 L 0 1440 0 0 2880 0 2880 1440";
+	drawPath(ctx,pathData,false);
+	ctx.save();
+	ctx.clip();
+	ctx.transform(20,0,0,20,0,0);
+	ctx.transform(1.0069444444444444,0,0,1.0138888888888888,-0.5,-0.5);
+	var fimg = ctrans.applyToImage(imageObj73);
+	var pat=ctx.createPattern(fimg,"repeat");
+	ctx.fillStyle = pat;
+	ctx.fillRect(-16384,-16384,32768,32768);
+	ctx.restore();
+}
+
+var imageObj75 = document.createElement("img");
+imageObj75.src="data:image/png;base64,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";
+function image75(ctx,ctrans,frame,ratio,time){
+	var pathData="M 0 0 L 0 1440 2880 1440 2880 0 0 0";
+	drawPath(ctx,pathData,false);
+	ctx.save();
+	ctx.clip();
+	ctx.transform(20,0,0,20,0,0);
+	ctx.transform(1.0069444444444444,0,0,1.0138888888888888,-0.5,-0.5);
+	var fimg = ctrans.applyToImage(imageObj75);
+	var pat=ctx.createPattern(fimg,"repeat");
+	ctx.fillStyle = pat;
+	ctx.fillRect(-16384,-16384,32768,32768);
+	ctx.restore();
+}
+
+function shape76(ctx,ctrans,frame,ratio,time){
+	var pathData="M 2880 1440 L 0 1440 0 0 2880 0 2880 1440";
+	drawPath(ctx,pathData,false);
+	ctx.save();
+	ctx.clip();
+	ctx.transform(20,0,0,20,0,0);
+	ctx.transform(1.0069444444444444,0,0,1.0138888888888888,-0.5,-0.5);
+	var fimg = ctrans.applyToImage(imageObj75);
+	var pat=ctx.createPattern(fimg,"repeat");
+	ctx.fillStyle = pat;
+	ctx.fillRect(-16384,-16384,32768,32768);
+	ctx.restore();
+}
+
+var imageObj77 = document.createElement("img");
+imageObj77.src="data:image/png;base64,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";
+function image77(ctx,ctrans,frame,ratio,time){
+	var pathData="M 0 0 L 0 1440 2880 1440 2880 0 0 0";
+	drawPath(ctx,pathData,false);
+	ctx.save();
+	ctx.clip();
+	ctx.transform(20,0,0,20,0,0);
+	ctx.transform(1.0069444444444444,0,0,1.0138888888888888,-0.5,-0.5);
+	var fimg = ctrans.applyToImage(imageObj77);
+	var pat=ctx.createPattern(fimg,"repeat");
+	ctx.fillStyle = pat;
+	ctx.fillRect(-16384,-16384,32768,32768);
+	ctx.restore();
+}
+
+function shape78(ctx,ctrans,frame,ratio,time){
+	var pathData="M 2880 1440 L 0 1440 0 0 2880 0 2880 1440";
+	drawPath(ctx,pathData,false);
+	ctx.save();
+	ctx.clip();
+	ctx.transform(20,0,0,20,0,0);
+	ctx.transform(1.0069444444444444,0,0,1.0138888888888888,-0.5,-0.5);
+	var fimg = ctrans.applyToImage(imageObj77);
+	var pat=ctx.createPattern(fimg,"repeat");
+	ctx.fillStyle = pat;
+	ctx.fillRect(-16384,-16384,32768,32768);
+	ctx.restore();
+}
+
+var imageObj79 = document.createElement("img");
+imageObj79.src="data:image/png;base64,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";
+function image79(ctx,ctrans,frame,ratio,time){
+	var pathData="M 0 0 L 0 1440 2880 1440 2880 0 0 0";
+	drawPath(ctx,pathData,false);
+	ctx.save();
+	ctx.clip();
+	ctx.transform(20,0,0,20,0,0);
+	ctx.transform(1.0069444444444444,0,0,1.0138888888888888,-0.5,-0.5);
+	var fimg = ctrans.applyToImage(imageObj79);
+	var pat=ctx.createPattern(fimg,"repeat");
+	ctx.fillStyle = pat;
+	ctx.fillRect(-16384,-16384,32768,32768);
+	ctx.restore();
+}
+
+function shape80(ctx,ctrans,frame,ratio,time){
+	var pathData="M 2880 1440 L 0 1440 0 0 2880 0 2880 1440";
+	drawPath(ctx,pathData,false);
+	ctx.save();
+	ctx.clip();
+	ctx.transform(20,0,0,20,0,0);
+	ctx.transform(1.0069444444444444,0,0,1.0138888888888888,-0.5,-0.5);
+	var fimg = ctrans.applyToImage(imageObj79);
+	var pat=ctx.createPattern(fimg,"repeat");
+	ctx.fillStyle = pat;
+	ctx.fillRect(-16384,-16384,32768,32768);
+	ctx.restore();
+}
+
+var imageObj81 = document.createElement("img");
+imageObj81.src="data:image/png;base64,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";
+function image81(ctx,ctrans,frame,ratio,time){
+	var pathData="M 0 0 L 0 1440 2880 1440 2880 0 0 0";
+	drawPath(ctx,pathData,false);
+	ctx.save();
+	ctx.clip();
+	ctx.transform(20,0,0,20,0,0);
+	ctx.transform(1.0069444444444444,0,0,1.0138888888888888,-0.5,-0.5);
+	var fimg = ctrans.applyToImage(imageObj81);
+	var pat=ctx.createPattern(fimg,"repeat");
+	ctx.fillStyle = pat;
+	ctx.fillRect(-16384,-16384,32768,32768);
+	ctx.restore();
+}
+
+function shape82(ctx,ctrans,frame,ratio,time){
+	var pathData="M 2880 1440 L 0 1440 0 0 2880 0 2880 1440";
+	drawPath(ctx,pathData,false);
+	ctx.save();
+	ctx.clip();
+	ctx.transform(20,0,0,20,0,0);
+	ctx.transform(1.0069444444444444,0,0,1.0138888888888888,-0.5,-0.5);
+	var fimg = ctrans.applyToImage(imageObj81);
+	var pat=ctx.createPattern(fimg,"repeat");
+	ctx.fillStyle = pat;
+	ctx.fillRect(-16384,-16384,32768,32768);
+	ctx.restore();
+}
+
+var imageObj83 = document.createElement("img");
+imageObj83.src="data:image/png;base64,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";
+function image83(ctx,ctrans,frame,ratio,time){
+	var pathData="M 0 0 L 0 1440 2880 1440 2880 0 0 0";
+	drawPath(ctx,pathData,false);
+	ctx.save();
+	ctx.clip();
+	ctx.transform(20,0,0,20,0,0);
+	ctx.transform(1.0069444444444444,0,0,1.0138888888888888,-0.5,-0.5);
+	var fimg = ctrans.applyToImage(imageObj83);
+	var pat=ctx.createPattern(fimg,"repeat");
+	ctx.fillStyle = pat;
+	ctx.fillRect(-16384,-16384,32768,32768);
+	ctx.restore();
+}
+
+function shape84(ctx,ctrans,frame,ratio,time){
+	var pathData="M 2880 1440 L 0 1440 0 0 2880 0 2880 1440";
+	drawPath(ctx,pathData,false);
+	ctx.save();
+	ctx.clip();
+	ctx.transform(20,0,0,20,0,0);
+	ctx.transform(1.0069444444444444,0,0,1.0138888888888888,-0.5,-0.5);
+	var fimg = ctrans.applyToImage(imageObj83);
+	var pat=ctx.createPattern(fimg,"repeat");
+	ctx.fillStyle = pat;
+	ctx.fillRect(-16384,-16384,32768,32768);
+	ctx.restore();
+}
+
+var imageObj85 = document.createElement("img");
+imageObj85.src="data:image/png;base64,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";
+function image85(ctx,ctrans,frame,ratio,time){
+	var pathData="M 0 0 L 0 1440 2880 1440 2880 0 0 0";
+	drawPath(ctx,pathData,false);
+	ctx.save();
+	ctx.clip();
+	ctx.transform(20,0,0,20,0,0);
+	ctx.transform(1.0069444444444444,0,0,1.0138888888888888,-0.5,-0.5);
+	var fimg = ctrans.applyToImage(imageObj85);
+	var pat=ctx.createPattern(fimg,"repeat");
+	ctx.fillStyle = pat;
+	ctx.fillRect(-16384,-16384,32768,32768);
+	ctx.restore();
+}
+
+function shape86(ctx,ctrans,frame,ratio,time){
+	var pathData="M 2880 1440 L 0 1440 0 0 2880 0 2880 1440";
+	drawPath(ctx,pathData,false);
+	ctx.save();
+	ctx.clip();
+	ctx.transform(20,0,0,20,0,0);
+	ctx.transform(1.0069444444444444,0,0,1.0138888888888888,-0.5,-0.5);
+	var fimg = ctrans.applyToImage(imageObj85);
+	var pat=ctx.createPattern(fimg,"repeat");
+	ctx.fillStyle = pat;
+	ctx.fillRect(-16384,-16384,32768,32768);
+	ctx.restore();
+}
+
+function sprite87(ctx,ctrans,frame,ratio,time){
+	ctx.save();
+	ctx.transform(1,0,0,1,0.0,0.0);
+	var clips = [];
+	var frame_cnt = 7;
+	frame = frame % frame_cnt;
+	switch(frame){
+		case 0:
+			place("shape74",canvas,ctx,[0.05,0.0,0.0,0.05,0.0,0.0],ctrans,1,0,0,time);
+			break;
+		case 1:
+			place("shape76",canvas,ctx,[0.05,0.0,0.0,0.05,0.0,0.0],ctrans,1,0,0,time);
+			break;
+		case 2:
+			place("shape78",canvas,ctx,[0.05,0.0,0.0,0.05,0.0,0.0],ctrans,1,0,0,time);
+			break;
+		case 3:
+			place("shape80",canvas,ctx,[0.05,0.0,0.0,0.05,0.0,0.0],ctrans,1,0,0,time);
+			break;
+		case 4:
+			place("shape82",canvas,ctx,[0.05,0.0,0.0,0.05,0.0,0.0],ctrans,1,0,0,time);
+			break;
+		case 5:
+			place("shape84",canvas,ctx,[0.05,0.0,0.0,0.05,0.0,0.0],ctrans,1,0,0,time);
+			break;
+		case 6:
+			place("shape86",canvas,ctx,[0.05,0.0,0.0,0.05,0.0,0.0],ctrans,1,0,0,time);
+			break;
+	}
+	ctx.restore();
+}
+
+var frame = -1;
+var time = 0;
+var frames = [];
+frames.push(0);
+frames.push(1);
+frames.push(2);
+frames.push(3);
+frames.push(4);
+frames.push(5);
+frames.push(6);
+
+var backgroundColor = "#000000";
+var originalWidth = 144;
+var originalHeight= 72;
+function nextFrame(ctx,ctrans){
+	var oldframe = frame;
+	frame = (frame+1)%frames.length;
+	if(frame==oldframe){time++;}else{time=0;};
+	drawFrame();
+}
+
+function drawFrame(){
+	ctx.fillStyle = backgroundColor;
+	ctx.fillRect(0,0,canvas.width,canvas.height);
+	ctx.save();
+	ctx.transform(canvas.width/originalWidth,0,0,canvas.height/originalHeight,0,0);
+	sprite87(ctx,ctrans,frames[frame],0,time);
+	ctx.restore();
+}
+
+window.setInterval(function(){nextFrame(ctx,ctrans);},58);
+nextFrame(ctx,ctrans);
+</script>
+</body>
+</html>
